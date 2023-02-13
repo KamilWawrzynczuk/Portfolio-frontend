@@ -1,0 +1,39 @@
+.typing-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+  min-height: 200px;
+}
+.heading-and-cursor {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.input-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 62px;
+  background-color: white;
+  margin-left: 8px;
+
+  animation: blink 0.6s linear infinite alternate;
+}
+
+@media screen {
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

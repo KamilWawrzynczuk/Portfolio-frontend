@@ -1,0 +1,94 @@
+/* navigation */
+
+nav {
+  font-family: var(--mono);
+  font-size: 80%;
+  padding: 4rem 1rem;
+}
+
+nav h1 {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+nav h1 a {
+  font-family: var(--sans);
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav li:first-child {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+nav [class*='fa-'] {
+  font-size: 150%;
+  color: var(--aqua);
+}
+
+nav h1 [class*='fa-'] {
+  font-size: 150%;
+  color: var(--aqua);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+nav a:hover,
+nav [class*='fa-']:hover {
+  color: var(--magenta);
+}
+
+.button {
+  background-color: var(--magenta);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: var(--mono);
+}
+
+.button-wiggle {
+  animation-name: wiggle;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.button:hover {
+  color: white;
+  background-color: var(--hotmag);
+}

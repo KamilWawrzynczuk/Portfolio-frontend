@@ -1,0 +1,19 @@
+@import './intro.css';
+@import './generic_style.css';
+@import './variables.css';
+@import './reset.css';
+@import './background_colors.css';
+@import './contact.css';
+@import './header.css';
+
+@import './footer.css';
+@import './user.css';
+@import './login.css';
+@import './form.css';
+
+@import './edit_form.css';
+@import './emailVerification.css';
+@import './typing_animation.css';
+@import './media.css';
+@import './projects.css';
+@import './error.css';

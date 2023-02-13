@@ -1,0 +1,87 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 10px;
+  max-width: 350px;
+  height: 100%;
+  /* background-color: var(--magenta); */
+  animation-name: error;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes error {
+  from {
+    height: 0;
+    background-color: transparent;
+  }
+  to {
+    height: 100%;
+    background-color: var(--magenta);
+  }
+}
+
+@keyframes error-delete {
+  from {
+    height: 0;
+    background-color: transparent;
+  }
+  to {
+    height: 100%;
+    background-color: red;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateX(10px);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.resume-div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+  height: auto;
+}
+
+.error-animation {
+  animation-name: fadeOut;
+  animation-delay: 1.5s;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  background-color: var(--magenta);
+}
+
+.error-delete {
+  animation-name: error-delete;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
