@@ -10,9 +10,9 @@ import './css/style.css';
 import ProudOfContext from './context/ProudOfContext';
 import ContactContext from './context/ContactContext';
 import UserSocialContext from './context/userSocialContext';
-
+import { HashRouter } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <HashRouter>
     <ErrorBoundary>
       <AuthProvider>
         <UserContext>
@@ -28,5 +28,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </UserContext>
       </AuthProvider>
     </ErrorBoundary>
-  </BrowserRouter>
+  </HashRouter>
 );
