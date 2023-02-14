@@ -15,7 +15,7 @@ import Line from './components/Line';
 import { useContext } from 'react';
 import { userSocialContext } from './context/userSocialContext';
 import axios from 'axios';
-import FinalWebsite from './components/Website/ProjectsComponents/FinalWebsite';
+import FinalWebsite from './components/Website/FinalWebsite';
 import AllDataContext from './context/getAllDataContext';
 function App() {
   const { userSocialState, dispatchUserSocialState } =
@@ -58,6 +58,8 @@ function App() {
   }, []);
 
   const path = useLocation();
+
+  console.log(path, 'path');
 
   return (
     <>

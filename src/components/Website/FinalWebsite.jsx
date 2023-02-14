@@ -3,12 +3,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ContactFinal from '../../FINAL/ContactFinal';
-import FooterFinal from '../../FINAL/FooterFinal';
-import HeaderFinal from '../../FINAL/HeaderFinal';
-import ProjectsFinal from '../../FINAL/ProjectsFinal';
-import UserIntroFinal from '../../FINAL/UserIntroFinal';
-import Line from '../../Line';
+import ContactFinal from '../FINAL/ContactFinal';
+import FooterFinal from '../FINAL/FooterFinal';
+import HeaderFinal from '../FINAL/HeaderFinal';
+import ProjectsFinal from '../FINAL/ProjectsFinal';
+import UserIntroFinal from '../FINAL/UserIntroFinal';
+import Line from '../Line';
 
 function FinalWebsite() {
   const path = useLocation();

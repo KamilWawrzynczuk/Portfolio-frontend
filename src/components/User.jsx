@@ -54,7 +54,9 @@ function User() {
     if (localStorage.getItem('user_id') !== null) {
       const user_id = localStorage.getItem('user_id');
       axios
-        .post('https://portfoliocreator.onrender.com/users/getUserProjects', { user_id })
+        .post('https://portfoliocreator.onrender.com/users/getUserProjects', {
+          user_id,
+        })
         .then((userData) => {
           dispatchUserState({
             type: 'UPDATE',
@@ -76,7 +78,9 @@ function User() {
     if (localStorage.getItem('user_id') !== null) {
       const userId = localStorage.getItem('user_id');
       axios
-        .post('https://portfoliocreator.onrender.com/users/getUserData', { userId })
+        .post('https://portfoliocreator.onrender.com/users/getUserData', {
+          userId,
+        })
         .then((userData) => {
           dispatchUserState({
             type: 'INTRO',
@@ -124,9 +128,9 @@ function User() {
           You can edit your website below,
           <br />
           go to{' '}
-          <a href={`portfolio/${userId}`} target='_blank'>
+          <Link to={`/portfolio/${userId}`} target='_blank'>
             live version{' '}
-          </a>{' '}
+          </Link>{' '}
           of your Portfolio
           <br />
           or change your <Link to='/users/profile'>profile data. </Link>
