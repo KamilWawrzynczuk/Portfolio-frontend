@@ -3,17 +3,19 @@
     flex-direction: row;
   }
 
+  #contact {
+    width: 400px;
+  }
+
   article {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
   }
 
   .name-span {
-    
     font-size: 4rem;
- 
   }
-  
+
   #intro h2 {
     font-size: 4rem;
   }

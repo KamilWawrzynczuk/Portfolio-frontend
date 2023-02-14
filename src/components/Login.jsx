@@ -5,6 +5,9 @@ import axios from 'axios';
 import { setLocalStorage } from '../util/setLocalStorage';
 import { useAuth } from '../auth/auth';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 function Login() {
   const auth = useAuth();
   const [user, setUser] = useState({
@@ -16,7 +19,7 @@ function Login() {
   const redirectPath = location.state?.path || '/users';
 
   const [loginMessage, setLoginMessage] = useState('');
-
+  const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -26,6 +29,7 @@ function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsLogin(true);
     // auth.contextValue.login(user);
     axios
       // This address will change depends on PORT
@@ -41,9 +45,11 @@ function Login() {
           isAuth: true,
           msg: '',
         });
+        setIsLogin(false);
         navigate(redirectPath, { replace: true });
       })
       .catch((error) => {
+        setIsLogin(false);
         window.localStorage.setItem('isAuth', 'false');
         auth.contextValue.setUser({
           isAuth: false,
@@ -73,6 +79,7 @@ function Login() {
     <div className='login-form'>
       <form onSubmit={handleSubmit} className='login-form'>
         <h3>Please Login</h3>
+
         {loginMessage && <div className='error'>{loginMessage}</div>}
         <label className='login-label' htmlFor='email'>
           Email
@@ -98,9 +105,22 @@ function Login() {
           value={user.password}
           onChange={handleChange}
         />
-        <button type='submit' className='login-button'>
-          Log In
-        </button>
+        {isLogin ? (
+          <button type='submit' className='login-button login-clicked'>
+            <FontAwesomeIcon
+              icon={faSpinner}
+              size='lg'
+              spin
+              className='login-spinner'
+            />{' '}
+            Log In
+          </button>
+        ) : (
+          <button type='submit' className='login-button'>
+            Log In
+          </button>
+        )}
+
         <a
           href='https://portfoliocreator.onrender.com/auth/facebook'
           role='button'

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 function Register() {
   const [user, setUser] = useState({
@@ -13,7 +15,7 @@ function Register() {
 
   const [errorMessage, setErrorMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
-
+  const [isRegister, setIsRegister] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -23,35 +25,36 @@ function Register() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    try {
-      const response = await axios.post(
-        'https://portfoliocreator.onrender.com/users/register',
-        {
-          fName: user.fName,
-          lName: user.lName,
-          email: user.email,
-          password: user.password,
-          confirmPassword: user.confirmPassword,
+    setIsRegister(true);
+    const response = await axios
+      .post('https://portfoliocreator.onrender.com/users/register', {
+        fName: user.fName,
+        lName: user.lName,
+        email: user.email,
+        password: user.password,
+        confirmPassword: user.confirmPassword,
+      })
+      .then((response) => {
+        setIsSuccess(true);
+        setIsRegister(false);
+      })
+      .catch((error) => {
+        setIsRegister(false);
+        if (
+          error.response.data.error &&
+          error.response.data.error.message === 'Email is already in use.'
+        ) {
+          setErrorMessage('Email is already in use');
+          setTimeout(() => {
+            setErrorMessage(false);
+          }, 2000);
+        } else {
+          setErrorMessage(error.response.data.errors[0].msg);
+          setTimeout(() => {
+            setErrorMessage(false);
+          }, 2000);
         }
-      );
-      setIsSuccess(true);
-    } catch (error) {
-      console.log(error);
-      if (
-        error.response.data.error &&
-        error.response.data.error.message === 'Email is already in use.'
-      ) {
-        setErrorMessage('Email is already in use');
-        setTimeout(() => {
-          setErrorMessage(false);
-        }, 2000);
-      } else {
-        setErrorMessage(error.response.data.errors[0].msg);
-        setTimeout(() => {
-          setErrorMessage(false);
-        }, 2000);
-      }
-    }
+      });
   }
 
   return isSuccess ? (
@@ -131,9 +134,21 @@ function Register() {
             value={user.confirmPassword}
             onChange={handleChange}
           />
-          <button type='submit' className='login-button'>
-            Register
-          </button>
+          {isRegister ? (
+            <button type='submit' className='login-button login-clicked'>
+              <FontAwesomeIcon
+                icon={faSpinner}
+                size='lg'
+                spin
+                className='login-spinner'
+              />{' '}
+              Register
+            </button>
+          ) : (
+            <button type='submit' className='login-button'>
+              Register
+            </button>
+          )}
         </form>
       </div>
     </>

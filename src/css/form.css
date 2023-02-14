@@ -70,6 +70,12 @@
   transition: all 0.2s ease-in;
 }
 
+.login-clicked {
+  background-color: var(--magenta);
+  border: 1px solid var(--magenta);
+  color: var(--white);
+}
+
 .login-button:hover {
   background-color: var(--magenta);
   border: 1px solid var(--magenta);

@@ -1,6 +1,8 @@
+@import './variables.css';
+@import './login.css';
 @import './intro.css';
 @import './generic_style.css';
-@import './variables.css';
+
 @import './reset.css';
 @import './background_colors.css';
 @import './contact.css';
@@ -8,7 +10,7 @@
 
 @import './footer.css';
 @import './user.css';
-@import './login.css';
+
 @import './form.css';
 
 @import './edit_form.css';

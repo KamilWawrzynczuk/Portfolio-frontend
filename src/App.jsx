@@ -29,8 +29,8 @@ function App() {
   let websiteTitle = 'Portfolio Creator';
 
   if (isAuth === false) {
-    github = 'https://github.com';
-    linkedIn = 'https://linkedin.com';
+    github = 'www.github.com';
+    linkedIn = 'www.linkedin.com';
   } else {
     github = userSocialState.github;
     linkedIn = userSocialState.linkedIn;
