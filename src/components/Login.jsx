@@ -121,13 +121,13 @@ function Login() {
           </button>
         )}
 
-        <a
+        {/* <a
           href='https://portfoliocreator.onrender.com/auth/facebook'
           role='button'
           className='login-button login-button-facebook'
         >
           Log in With Facebook
-        </a>
+        </a> */}
         <div className='login-forgot-password-link'>
           <Link to='/users/forgot-password'>Forgot password?</Link>
         </div>
