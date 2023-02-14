@@ -21,34 +21,32 @@ function User() {
 
   const userId = localStorage.getItem('user_id');
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token') || '';
-  //   const user_id = localStorage.getItem('user_id');
+  useEffect(() => {
+    const token = localStorage.getItem('token') || '';
+    const user_id = localStorage.getItem('user_id');
 
-  //   if (isLogin()) {
-  //     axios
-  //       .get(`https://portfoliocreator.onrender.com/users/getOne/${user_id}`, {
-  //         headers: {
-  //           Authorization: token,
-  //         },
-  //       })
-  //       .then((user) => {
-  //         setUser(user.data.user.fName);
-  //         window.localStorage.setItem('isAuth', 'true');
-  //         auth.contextValue.setUser({
-  //           isAuth: user.data.success,
-  //           msg: '',
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         window.localStorage.setItem('isAuth', 'false');
-  //         auth.contextValue.setUser({
-  //           isAuth: err.response.data.success,
-  //           msg: '',
-  //         });
-  //       });
-  //   }
-  // }, []);
+      axios
+        .get(`https://portfoliocreator.onrender.com/users/getOne/${user_id}`, {
+          headers: {
+            Authorization: token,
+          },
+        })
+        .then((user) => {
+          setUser(user.data.user.fName);
+          window.localStorage.setItem('isAuth', 'true');
+          auth.contextValue.setUser({
+            isAuth: user.data.success,
+            msg: '',
+          });
+        })
+        .catch((err) => {
+          window.localStorage.setItem('isAuth', 'false');
+          auth.contextValue.setUser({
+            isAuth: err.response.data.success,
+            msg: '',
+          });
+        });
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem('user_id') !== null) {

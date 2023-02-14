@@ -59,8 +59,6 @@ function App() {
 
   const path = useLocation();
 
-  console.log(path, 'path');
-
   return (
     <>
       {path.pathname.includes('portfolio/') ? (
