@@ -46,7 +46,7 @@ function HeaderFinal({ github, linkedIn, fName, lName, userId, websiteTitle }) {
             </li>
             <li>
               <Link
-                to={`//${github}`}
+                to={`//${linkedIn}`}
                 aria-label='Link to linkedIn'
                 target='_blank'
               >
@@ -59,7 +59,7 @@ function HeaderFinal({ github, linkedIn, fName, lName, userId, websiteTitle }) {
             </li>
             <li>
               <Link
-                to={`//${linkedIn}`}
+                to={`//${github}`}
                 aria-label='Link to GitHub'
                 target='_blank'
               >
