@@ -25,7 +25,7 @@ function Header({ github, linkedIn, executeScroll }) {
                   className='fa-solid fa-laptop-code'
                   aria-hidden='true'
                 ></span>
-                
+
                 {isAuth ? (
                   <Link to='/users'>
                     <span>{`${userSocialState.websiteTitle}`}</span>

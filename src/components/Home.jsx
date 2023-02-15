@@ -9,6 +9,7 @@ import { userContext } from '../context/UserIntroContext';
 import { setLocalStorage } from '../util/setLocalStorage';
 import { isTokenExpire } from '../util/isTokenExpire';
 import { useAuth } from '../auth/auth';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   const spanElement = useRef();
@@ -85,7 +86,7 @@ function Home() {
     <>
       <section id='intro'>
         <p className='name'>Hi, my name is</p>
-        <span className='name-span'>John Doe</span>
+        <span className='name-span'>John Smith</span>
         <div className='typing-container'>
           <h2>I am</h2>
           <div className='heading-and-cursor'>
@@ -97,9 +98,9 @@ function Home() {
       <Line />
       <div className='section-blue'>
         <section id='projects'>
-          <h2>
-            Are you looking to create an impressive portfolio that showcases
-            your work and skills?
+          <h2 style={{ marginBottom: '2rem' }}>
+            Are you looking for a website to create an impressive portfolio that
+            showcases your work and skills?
           </h2>
           <article className=''>
             <div className='text'>
@@ -107,12 +108,11 @@ function Home() {
               <p className='blackbox'>
                 Our portfolio creator tool is easy to use and offers a variety
                 of customization options to make your portfolio truly unique.
-                With features like customizable templates, drag-and-drop
-                functionality, and easy integration with your existing projects,
-                you'll have a stunning portfolio in no time. Whether you're a
-                freelancer, artist, or professional, our portfolio creator is
-                the perfect platform to showcase your talent and reach your next
-                big opportunity.
+                With features like customizable templates and easy integration
+                with your existing projects, you'll have a stunning portfolio in
+                no time. Whether you're a freelancer, artist, or professional,
+                our portfolio creator is the perfect platform to showcase your
+                talent and reach your next big opportunity.
               </p>
               <h4>Key characteristics:</h4>
               <ul>

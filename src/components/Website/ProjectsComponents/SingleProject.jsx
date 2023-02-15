@@ -29,7 +29,9 @@ function SingleProject(props) {
 
   function handleDelete() {
     axios
-      .delete(`https://portfoliocreator.onrender.com/users/deleteOneProject/${projectId}`)
+      .delete(
+        `https://portfoliocreator.onrender.com/users/deleteOneProject/${projectId}`
+      )
       .then((res) => {
         dispatchUserState({ type: 'DELETE', payload: projectId });
       })
@@ -80,7 +82,11 @@ function SingleProject(props) {
           </div>
         </div>
 
-        <img src={image} alt='Screenshot of the Wall of Wonder.' />
+        <img
+          className='link-image'
+          src={image}
+          alt='Screenshot of the Wall of Wonder.'
+        />
       </article>
     </>
   );

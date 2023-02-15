@@ -23,6 +23,7 @@ function Login() {
   const navigate = useNavigate();
 
   function handleChange(event) {
+    setLoginMessage(null);
     const { name, value } = event.target;
     setUser((prevValue) => ({ ...prevValue, [name]: value }));
   }
@@ -56,9 +57,9 @@ function Login() {
           msg: error.response.data.msg,
         });
         setLoginMessage(error.response.data.msg);
-        setTimeout(() => {
-          setLoginMessage(false);
-        }, 2000);
+        // setTimeout(() => {
+        //   setLoginMessage(false);
+        // }, 2000);
       });
   }
 

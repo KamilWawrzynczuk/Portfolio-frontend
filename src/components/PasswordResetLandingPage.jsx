@@ -59,12 +59,12 @@ function PasswordResetLandingPage() {
     }
   }
   return isSuccess ? (
-    <div className='login-form'>
+    <div className='user-intro login-form-success'>
       <h2>Success</h2>
-      <p>Your password is changed.</p>
+      <p>You have changed your password</p>
       <p>
         Click here to <Link to='/users/login'>login</Link> or wait to be
-        redirected.
+        redirected to home page.
       </p>
     </div>
   ) : (
@@ -80,7 +80,7 @@ function PasswordResetLandingPage() {
         <input
           className='login-input'
           type='password'
-          placeholder='newPassword'
+          placeholder='New Password'
           name='newPassword'
           id='newPassword'
           value={passwords.newPassword}
@@ -92,7 +92,7 @@ function PasswordResetLandingPage() {
         <input
           className='login-input'
           type='password'
-          placeholder='confirmPassword'
+          placeholder='Confirm Password'
           name='confirmPassword'
           id='confirmPassword'
           value={passwords.confirmPassword}
