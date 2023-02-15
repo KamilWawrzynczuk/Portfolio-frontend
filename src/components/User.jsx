@@ -25,27 +25,27 @@ function User() {
     const token = localStorage.getItem('token') || '';
     const user_id = localStorage.getItem('user_id');
 
-      axios
-        .get(`https://portfoliocreator.onrender.com/users/getOne/${user_id}`, {
-          headers: {
-            Authorization: token,
-          },
-        })
-        .then((user) => {
-          setUser(user.data.user.fName);
-          window.localStorage.setItem('isAuth', 'true');
-          auth.contextValue.setUser({
-            isAuth: user.data.success,
-            msg: '',
-          });
-        })
-        .catch((err) => {
-          window.localStorage.setItem('isAuth', 'false');
-          auth.contextValue.setUser({
-            isAuth: err.response.data.success,
-            msg: '',
-          });
+    axios
+      .get(`https://portfoliocreator.onrender.com/users/getOne/${user_id}`, {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((user) => {
+        setUser(user.data.user.fName);
+        window.localStorage.setItem('isAuth', 'true');
+        auth.contextValue.setUser({
+          isAuth: user.data.success,
+          msg: '',
         });
+      })
+      .catch((err) => {
+        window.localStorage.setItem('isAuth', 'false');
+        auth.contextValue.setUser({
+          isAuth: err.response.data.success,
+          msg: '',
+        });
+      });
   }, []);
 
   useEffect(() => {
@@ -123,15 +123,23 @@ function User() {
         </p>
         <p>
           This is your Portfolio Creator account. <br />
-          You can edit your website below,
-          <br />
-          go to{' '}
-          <Link to={`/portfolio/${userId}`} target='_blank'>
-            live version{' '}
+          Here you can customize all data for your portfolio website. <br />
+          In{' '}
+          <Link to='/users/profile' aria-label='Link to my profile section'>
+            My Profile
           </Link>{' '}
-          of your Portfolio
+          section you can set up your social media links and upload resume.
           <br />
-          or change your <Link to='/users/profile'>profile data. </Link>
+          After polishing your personal site, you can see it live{' '}
+          <Link
+            to={`/portfolio/${userId}`}
+            aria-label='Link to finished portfolio website'
+            target='_blank'
+          >
+            here.{' '}
+          </Link>{' '}
+          <br /> Share this link with the world and show your impressive portfolio that
+            showcases your work and skills!
         </p>
         <Line />
       </section>
