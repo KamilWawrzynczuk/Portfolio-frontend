@@ -61,7 +61,7 @@ function Register() {
   return isSuccess ? (
     <div className='user-intro login-form-success'>
       <h2>Success</h2>
-      <p>We have sent you email with verification link.</p>
+      {/* <p>We have sent you email with verification link.</p> */}
       <p>
         Click <Link to='/'>here</Link> to go back to home page <br />
         or <Link to='/login'>login</Link> page.
